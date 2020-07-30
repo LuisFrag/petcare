@@ -1,0 +1,23 @@
+spring:
+
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    generate-ddl: true
+    open-in-view: true
+
+
+  datasource:
+    url: jdbc:mysql://${DATABASE_URL}:${DATABASE_PORT:3308}/${DATABASE_NAME}?autoReconnect=true
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 1
+      connection-timeout: 50000
+
+server:
+  port: 8081
